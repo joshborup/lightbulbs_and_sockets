@@ -10,7 +10,6 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      bulb1: false,
       bulbData: bulbData
     }
   socket.emit('room', 'user-connected');
@@ -45,6 +44,7 @@ class App extends Component {
     let displayBulbs = this.state.bulbData.map(bulb => {
       return <Bulb bulbNumber={`bulb${bulb.id}`} color={bulb.color} lightToggle={this.lightToggle} bulb={this.state[`bulb${bulb.id}`]}/>
     })
+
     return (
       <div className="App">
         <div>
