@@ -6,7 +6,10 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  flex-direction: column; }
+  .App > div:first-child {
+    margin-bottom: 20px; }
   .App > div {
     display: flex;
     max-width: 800px;
@@ -15,6 +18,34 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap; }
+  .App .common-heading {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-shadow: 2px 2px 4px black; }
+  .App h1 {
+    font-size: 34px;
+    margin-bottom: 10px; }
+    @media (max-width: 599px) {
+      .App h1 {
+        font-size: 24px; } }
+  .App h2 {
+    font-size: 24px; }
+    @media (max-width: 599px) {
+      .App h2 {
+        font-size: 18px; } }
 
 .bulb {
-  width: 80px; }
+  width: 80px;
+  margin: 10px; }
+  @media (max-width: 599px) {
+    .bulb {
+      width: 50px; } }
+
+.bulb:hover {
+  cursor: pointer; }
+
+.bulb:focus {
+  outline: none; }
+
+.bulb:active {
+  outline: none; }
