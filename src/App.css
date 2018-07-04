@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./background.jpg");
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .App > div {
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; }
+
+.bulb {
+  width: 80px; }
