@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <h1 className='common-heading'>Click or Tap a light to turn it on</h1>
+          <h1 className='common-heading'>Tap a light to turn it on</h1>
           <h2 className='common-heading'>Anyone on this site will see the bulbs turn on in real time</h2>
         </div>
         <div>
