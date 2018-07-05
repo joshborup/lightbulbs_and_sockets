@@ -8,20 +8,28 @@ const xhub = require('express-x-hub');
 require('dotenv').config();
 
 
+
 app.use(express.static(path.join(__dirname, '/../build')));
 app.use(xhub({ algorithm: 'sha1', secret: process.env.SECRET_TOKEN}));
+
+count = 0;
 io.sockets.on('connection', (socket) => {
     console.log('user connected')
-    socket.on('room', () => {
-
-    })
+    count++
+    setInterval(()=> {
+        socket.emit("user_count", count)
+    }, 3000);
+  
 
     socket.on("message", (bulb) => {
+        
         console.log(bulb)
         io.emit("update_bulb", bulb);
     })
 
     socket.on('disconnect', () => {
+        count--
+        io.emit("user_count", count)
         console.log('user disconnected')
     })
 })

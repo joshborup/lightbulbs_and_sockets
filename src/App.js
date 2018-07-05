@@ -12,10 +12,18 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      bulbData: bulbData
+      bulbData: bulbData,
+      count: 0
     }
   socket.emit('room', 'user-connected');
-
+  
+  socket.on("user_count", (count) => {
+    console.log(count)
+    this.setState({
+      count: count
+    })
+  })
+  
   socket.on("update_bulb", (bulb) => {
     this.setState({
         [bulb.key]: bulb.value
@@ -71,10 +79,14 @@ class App extends Component {
           {displayBulbs}
         </div>
         <div className='attribution'>
+      
+            current user count: {this.state.count}
+        
           <div>
             <h3> Made with React.js, Socket.io, and &nbsp;</h3>
             <Lottie style={style} options={defaultOptions} height={70} width={70}/>
           </div>
+          
           <h3>&nbsp;by&nbsp;</h3>
           <h3>&nbsp;<a href='https://www.joshborup.com'>Josh Borup</a> </h3>
         </div>
