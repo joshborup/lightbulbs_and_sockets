@@ -31,6 +31,7 @@ const Bulb = (props) => {
     console.log(props.bulb, props.key);
     return (
         <div className='bulb'>
+            <p className={props.bulb ? 'light' : 'dark'}>{props.letter}</p>
             <img onClick={() => props.lightToggle(props.bulbNumber)} src={props.bulb ? color : bulb}/>
         </div>
     );

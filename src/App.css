@@ -3,13 +3,24 @@
   background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
   background-size: cover;
   background-position: center center;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
   .App > div:first-child {
     margin-bottom: 20px; }
+  .App .attribution {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff; }
+    .App .attribution a {
+      color: #ffffff; }
+    .App .attribution a:hover {
+      color: #bdbdbd; }
   .App > div {
     display: flex;
     max-width: 800px;
@@ -36,10 +47,35 @@
 
 .bulb {
   width: 80px;
-  margin: 10px; }
+  margin: 10px;
+  position: relative; }
+  .bulb img {
+    opacity: 0.75;
+    width: 100%; }
   @media (max-width: 599px) {
     .bulb {
       width: 50px; } }
+  .bulb p {
+    position: absolute;
+    font-size: 60px;
+    top: 9px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    @media (max-width: 599px) {
+      .bulb p {
+        font-size: 40px;
+        top: 3px;
+        left: 0;
+        right: 0;
+        margin: 0 auto; } }
+  .bulb .dark {
+    color: rgba(0, 0, 0, 0.95); }
+  .bulb .light {
+    color: white; }
 
 .bulb:hover {
   cursor: pointer; }
