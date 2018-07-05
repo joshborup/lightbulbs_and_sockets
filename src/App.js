@@ -71,8 +71,10 @@ class App extends Component {
           {displayBulbs}
         </div>
         <div className='attribution'>
-          <h3> Made with &nbsp;</h3>
-          <Lottie style={style} options={defaultOptions} height={70} width={70}/>
+          <div>
+            <h3> Made with React.js, Socket.io, and &nbsp;</h3>
+            <Lottie style={style} options={defaultOptions} height={70} width={70}/>
+          </div>
           <h3>&nbsp;by&nbsp;</h3>
           <h3>&nbsp;<a href='https://www.joshborup.com'>Josh Borup</a> </h3>
         </div>
