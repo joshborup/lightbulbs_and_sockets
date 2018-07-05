@@ -75,7 +75,8 @@
   .bulb .dark {
     color: rgba(0, 0, 0, 0.95); }
   .bulb .light {
-    color: white; }
+    color: white;
+    text-shadow: 0 0 15px white; }
 
 .bulb:hover {
   cursor: pointer; }
