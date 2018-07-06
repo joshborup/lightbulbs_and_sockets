@@ -20,6 +20,17 @@
         }
     }
 
+    .user-count {
+        font-size: 22px;
+        color: white;
+        margin: 20px 0;
+
+        span {
+            margin: 0 10px;
+            color: rgb(148, 250, 250);
+        }
+    }
+
     .attribution {
         display: flex;
         position: relative;

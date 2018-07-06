@@ -14,7 +14,6 @@ app.use(xhub({ algorithm: 'sha1', secret: process.env.SECRET_TOKEN}));
 clients = [];
 
 io.sockets.on('connection', (socket) => {
-    console.log('user connected')
     
     let inlist = clients.filter((client) => client.address == socket.handshake.address && client.userAgent ==  socket.handshake.headers['user-agent']);
    
@@ -22,18 +21,17 @@ io.sockets.on('connection', (socket) => {
     if(!inlist.length){
         clients.push({address: socket.handshake.address, userAgent: socket.handshake.headers['user-agent']})
     }
-    console.log(clients.length)
+    setInterval(() => {
 
-    socket.emit("user_count", clients.length);
-    socket.join('lightbulb')
-
+        socket.emit("user_count", clients.length);
+    }, 500)
   
     socket.on("message", (bulb) => {
-        console.log(bulb)
         io.emit("update_bulb", bulb);
     })
-
+    console.log(inlist)
     socket.on('disconnect', () => {
+        clients = clients.filter((client) => client.address == socket.handshake.address && client.userAgent ==  socket.handshake.headers['user-agent']);
         io.emit("user_count", clients.length)
         console.log('user disconnected')
     })

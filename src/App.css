@@ -17,6 +17,13 @@
         max-width: 330px;
         width: 100%;
         margin: 0 auto; } }
+  .App .user-count {
+    font-size: 22px;
+    color: white;
+    margin: 20px 0; }
+    .App .user-count span {
+      margin: 0 10px;
+      color: #94fafa; }
   .App .attribution {
     display: flex;
     position: relative;
