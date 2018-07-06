@@ -7,8 +7,6 @@ const exec = require('child_process').exec;
 const xhub = require('express-x-hub');
 require('dotenv').config();
 
-
-
 app.use(express.static(path.join(__dirname, '/../build')));
 app.use(xhub({ algorithm: 'sha1', secret: process.env.SECRET_TOKEN}));
 
@@ -18,7 +16,7 @@ io.sockets.on('connection', (socket) => {
     count++
     setInterval(()=> {
         socket.emit("user_count", count)
-    }, 3000);
+    }, 500);
   
 
     socket.on("message", (bulb) => {
