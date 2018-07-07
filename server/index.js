@@ -10,29 +10,30 @@ require('dotenv').config();
 app.use(express.static(path.join(__dirname, '/../build')));
 app.use(xhub({ algorithm: 'sha1', secret: process.env.SECRET_TOKEN}));
 
-
-clients = [];
+count = 0;
 
 io.sockets.on('connection', (socket) => {
     
-    let inlist = clients.filter((client) => client.address == socket.handshake.address && client.userAgent ==  socket.handshake.headers['user-agent']);
-   
+    count++
+    socket.on('join', (room) => {
 
-    if(!inlist.length){
-        clients.push({address: socket.handshake.address, userAgent: socket.handshake.headers['user-agent']})
-    }
-    setInterval(() => {
+        console.log('joined room ', room)
+        
+        socket.join(room)
+        
+        console.log(count)
+        io.in(room).emit("user_count", count)
+        
+    })
 
-        socket.emit("user_count", clients.length);
-    }, 500)
-  
     socket.on("message", (bulb) => {
         io.emit("update_bulb", bulb);
     })
-    console.log(inlist)
+    
     socket.on('disconnect', () => {
-        clients = clients.filter((client) => client.address == socket.handshake.address && client.userAgent ==  socket.handshake.headers['user-agent']);
-        io.emit("user_count", clients.length)
+        --count
+        io.in('lightbulb').emit("user_count", count)
+        io.emit("user_count", count)
         console.log('user disconnected')
     })
 })

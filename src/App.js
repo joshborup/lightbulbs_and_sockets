@@ -15,7 +15,7 @@ class App extends Component {
       bulbData: bulbData,
       count: 0
     }
-  socket.emit('room', 'user-connected');
+  socket.emit('join', 'lightbulb');
   
   socket.on("user_count", (count) => {
     console.log(count)
